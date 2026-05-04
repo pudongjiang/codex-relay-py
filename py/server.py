@@ -119,7 +119,7 @@ def create_app(
         model = model_map.get(req.model, req.model)
         if model != req.model:
             logger.info(f"model mapped: {req.model} -> {model}")
-        chat_req = to_chat_request(req, history, sessions)
+        chat_req = to_chat_request(req, history, sessions, model_override=model)
         url = f"{join_base(upstream)}chat/completions"
 
         http_client = await get_client()
@@ -316,7 +316,7 @@ def main():
     )
     parser.add_argument(
         "--model-map",
-        default=os.environ.get("CODEX_RELAY_MODEL_MAP", "'gpt-5.4-mini=deepseek-v4-flash'"),
+        default=os.environ.get("CODEX_RELAY_MODEL_MAP", "gpt-5.4-mini=deepseek-v4-flash"),
         help=(
             "Model name mapping: from=to,from2=to2 "
             "(env: CODEX_RELAY_MODEL_MAP). "

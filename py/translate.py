@@ -58,6 +58,7 @@ def to_chat_request(
     req: ResponsesRequest,
     history: list[ChatMessage],
     sessions: SessionStore,
+    model_override: str | None = None,
 ) -> ChatRequest:
     """Convert a Responses API request + prior history into a Chat Completions request."""
     messages = list(history)
@@ -148,7 +149,7 @@ def to_chat_request(
     ]
 
     return ChatRequest(
-        model=req.model,
+        model=model_override or req.model,
         messages=messages,
         tools=tools,
         temperature=req.temperature,
