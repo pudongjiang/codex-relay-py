@@ -316,11 +316,11 @@ def main():
     )
     parser.add_argument(
         "--model-map",
-        default=os.environ.get("CODEX_RELAY_MODEL_MAP", "gpt-5.4-mini=deepseek-v4-flash"),
+        default=os.environ.get("CODEX_RELAY_MODEL_MAP", "gpt-5.4-mini=deepseek-v4-flash,gpt-5.4=deepseek-v4-pro"),
         help=(
             "Model name mapping: from=to,from2=to2 "
             "(env: CODEX_RELAY_MODEL_MAP). "
-            "Example: 'gpt-5.4-mini=deepseek-v4-pro'"
+            "Example: 'gpt-5.4-mini=deepseek-v4-flash,gpt-5.4=deepseek-v4-pro'"
         ),
     )
 

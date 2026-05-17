@@ -39,7 +39,7 @@ PYTHONPATH=. .venv/bin/python -m py \
 | `--port` | `CODEX_RELAY_PORT` | `4446` | Port to listen on |
 | `--upstream` | `CODEX_RELAY_UPSTREAM` | `https://api.deepseek.com/v1` | Upstream provider base URL |
 | `--api-key` | `CODEX_RELAY_API_KEY` | (empty) | API key for the upstream provider |
-| `--model-map` | `CODEX_RELAY_MODEL_MAP` | `'gpt-5.4-mini=deepseek-v4-flash'` | Model name mappings (`from=to,from2=to2`) |
+| `--model-map` | `CODEX_RELAY_MODEL_MAP` | `'gpt-5.4-mini=deepseek-v4-flash,gpt-5.4=deepseek-v4-pro'` | Model name mappings (`from=to,from2=to2`) |
 
 ### LLM logging
 
@@ -54,7 +54,7 @@ export CODEX_RELAY_LOG_LLM=1  # enabled by default; set to 0 to disable
 Map multiple Codex model names to your provider's models:
 
 ```bash
-export CODEX_RELAY_MODEL_MAP="gpt-5.4-mini=deepseek-v4-pro,gpt-5.4=deepseek-v4-flash"
+export CODEX_RELAY_MODEL_MAP="gpt-5.4-mini=deepseek-v4-flash,gpt-5.4=deepseek-v4-pro"
 ```
 
 ## API endpoints
